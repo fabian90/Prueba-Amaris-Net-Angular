@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../interfaces/api-response.model';
 import { Cliente } from '../interfaces/cliente.model';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
-@Injectable({
+@Injectable({ 
   providedIn: 'root'
 })
 export class ClienteService {

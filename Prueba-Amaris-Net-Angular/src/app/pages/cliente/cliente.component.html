@@ -1,0 +1,30 @@
+<div class="cliente-container">
+    <h2>Buscar Cliente</h2>
+  
+    <input type="text" [(ngModel)]="documento" placeholder="Ingrese documento">
+    <button (click)="buscarCliente()">Buscar</button>
+  
+    <div *ngIf="cliente">
+      <h3>Datos del Cliente</h3>
+      <p><strong>ID:</strong> {{ cliente.idCliente }}</p>
+      <p><strong>Nombre:</strong> {{ cliente.nombre }}</p>
+      <p><strong>Email:</strong> {{ cliente.email }}</p>
+      
+      <button (click)="consultarSaldo()">Consultar Saldo</button>
+  
+      <div *ngIf="saldo !== undefined">
+        <p><strong>Saldo:</strong> {{ saldo }}</p>
+      </div>
+  
+      <div class="saldo-disponible">
+        <input type="number" [(ngModel)]="montoRequerido" placeholder="Monto requerido">
+        <button (click)="verificarSaldoDisponible()">Verificar Saldo Disponible</button>
+  
+        <div *ngIf="tieneSaldo !== undefined">
+          <p *ngIf="tieneSaldo">Tiene saldo suficiente</p>
+          <p *ngIf="!tieneSaldo">No tiene saldo suficiente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
