@@ -1,21 +1,14 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { RouterLink, RouterOutlet, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Importar CommonModule para usar directivas comunes
 
 @Component({
   selector: 'app-menu',
+  standalone: true,  // Define el componente como standalone
+  imports: [CommonModule, RouterOutlet, RouterLink,RouterModule],  // Asegúrate de importar lo necesario
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-//   constructor(private authService: AuthService, private router: Router) {}
-
-//   onLogout(): void {
-//     this.authService.logout();
-//     this.router.navigate(['/login']); // Redirigir a la página de inicio de sesión
-//   }
-
-//   isLoggedIn(): boolean {
-//     return this.authService.getToken() !== null; // Verificar si el usuario está autenticado
-//   }
+  // Si tienes funciones para la autenticación, también las puedes agregar aquí.
 }

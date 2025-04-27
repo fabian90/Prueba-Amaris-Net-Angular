@@ -1,0 +1,60 @@
+<div class="historial-container">
+    <h2>Historial de Transacciones</h2>
+
+    <div class="filter-container">
+        <label for="clienteId">ID Cliente:</label>
+        <input type="text" id="clienteId" [(ngModel)]="clienteId" placeholder="Ingrese ID del cliente">
+        <button (click)="cargarHistorial()">Buscar Historial</button>
+    </div>
+
+    <div *ngIf="isLoading" class="loading-message">
+        Cargando historial...
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+    </div>
+
+    <h3>Suscribirse a Nuevo Fondo (Apertura)</h3>
+    <div class="accion-fondo-container">
+        <input type="text" [(ngModel)]="nuevaSuscripcion.idCliente" placeholder="ID Cliente">
+        <input type="text" [(ngModel)]="nuevaSuscripcion.idFondo" placeholder="ID Fondo">
+        <input type="text" [(ngModel)]="nuevaSuscripcion.medioNotificacion" placeholder="Medio Notificación">
+        <button (click)="suscribirNuevoFondo()" [disabled]="isSubscribing || isLoading">
+            <span *ngIf="isSubscribing">Suscribiendo...</span>
+            <span *ngIf="!isSubscribing">Suscribir</span>
+        </button>
+    </div>
+
+    <h3>Salirse de Fondo Actual (Cancelación)</h3>
+    <div class="accion-fondo-container">
+        <input type="text" [(ngModel)]="cancelacionFondo.idCliente" placeholder="ID Cliente">
+        <input type="text" [(ngModel)]="cancelacionFondo.idFondo" placeholder="ID Fondo">
+        <input type="text" [(ngModel)]="cancelacionFondo.medioNotificacion" placeholder="Medio Notificación">
+        <button (click)="cancelarFondoActual()" [disabled]="isCancelling || isLoading">
+            <span *ngIf="isCancelling">Cancelando...</span>
+            <span *ngIf="!isCancelling">Cancelar Fondo</span>
+        </button>
+    </div>
+
+    <ul *ngIf="historialTransacciones.length > 0">
+        <li *ngFor="let transaccion of historialTransacciones" class="transaccion-item">
+            <div class="transaccion-details">
+                <strong>ID Transacción:</strong> {{ transaccion.idTransaccion }}<br>
+                <strong>ID Fondo:</strong> {{ transaccion.idFondo }}<br>
+                <strong>ID Cliente:</strong> {{ transaccion.idCliente }}<br>
+                <strong>Tipo:</strong> {{ transaccion.tipo }}<br>
+                <strong>Fecha:</strong> {{ transaccion.fecha | date: 'yyyy-MM-dd HH:mm:ss' }}<br>
+                <strong>Monto:</strong> {{ transaccion.monto | currency }}<br>
+            </div>
+            <!-- <div class="transaccion-actions">
+                <button *ngIf="transaccion.tipo === 'Apertura'" (click)="cancelarTransaccion(transaccion)" class="cancel-button">Cancelar</button>
+            </div> -->
+        </li>
+    </ul>
+
+    <div *ngIf="!isLoading && !errorMessage && historialTransacciones.length === 0 && clienteId" class="no-transactions">
+        haz clic en el boton buscar historia.
+    </div>
+    <button routerLink="/" class="menu-button">Regresar al Menú</button>
+</div>

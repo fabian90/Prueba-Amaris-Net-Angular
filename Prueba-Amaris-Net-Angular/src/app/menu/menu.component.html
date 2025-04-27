@@ -1,7 +1,8 @@
-<nav>
-    <ul>
-      <li><a routerLink="/cliente">cliente</a></li>
-      <li><a routerLink="/entity">Entidades</a></li>
-      <li><a routerLink="/login">Iniciar Sesión</a></li>
+<nav class="app-menu">
+  <ul>
+    <li><a routerLink="/cliente" routerLinkActive="active">Buscar Cliente</a></li>
+    <li><a routerLink="/fondos" routerLinkActive="active">Fondos Disponibles</a></li>
+    <li><a routerLink="/HistorialTrans" routerLinkActive="active">Historial de Transacciones</a></li>
     </ul>
-  </nav>
+</nav>
+<router-outlet></router-outlet>

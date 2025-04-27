@@ -1,0 +1,27 @@
+<div class="fondos-container">
+    <h2>Fondos Disponibles</h2>
+  
+    <div *ngIf="isLoading">
+      Cargando fondos...
+    </div>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <ul *ngIf="fondosDisponibles.length > 0">
+      <li *ngFor="let fondo of fondosDisponibles">
+        <strong>Nombre:</strong> {{ fondo.nombre }}<br>
+        <strong>ID Fondo:</strong> {{ fondo.idFondo }}<br>
+        <strong>Monto Mínimo:</strong> {{ fondo.montoMinimo | currency }}<br>
+        <strong>Categoría:</strong> {{ fondo.categoria }}<br>
+        <p><strong>Descripción:</strong> {{ fondo.descripcion }}</p>
+        <small><strong>Activo:</strong> {{ fondo.activo ? 'Sí' : 'No' }}</small>
+      </li>
+    </ul>
+  
+    <div *ngIf="!isLoading && !errorMessage && fondosDisponibles.length === 0">
+      No hay fondos disponibles en este momento.
+    </div>
+    <button routerLink="/">Regresar al Menú</button>
+  </div>

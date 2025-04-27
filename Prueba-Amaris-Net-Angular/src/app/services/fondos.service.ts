@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { ApiResponse } from '../interfaces/api-response.model';
 import { Fondo } from '../interfaces/fondo.model';
 import { RecordsResponse } from '../interfaces/api-response.model';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FondosService {
-  private apiUrl = `${environment.apiUrl}/api/Fondo`;
+  private apiUrl = `${environment.apiUrl}api/Fondo`;
 
   constructor(private http: HttpClient) {}
 

@@ -1,23 +1,28 @@
-nav {
-    background-color: #f8f9fa;
-    padding: 1rem;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+.app-menu {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Para que los enlaces estén en línea horizontalmente */
+  gap: 20px; /* Espacio entre los enlaces */
+}
+
+li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+li a:hover {
+  color: #007bff; /* Cambia de color al pasar el ratón */
+}
+
+li a.active {
+  color: #007bff; /* Estilo para el enlace activo */
+}
