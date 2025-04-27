@@ -7,7 +7,7 @@ import { HistorialComponent } from './pages/historial/historial.component';
 
 // Configuración de las rutas
 const routes: Routes = [
-  // { path: '', component: MenuComponent },  // Ruta principal
+  { path: '', component: MenuComponent },  // Ruta principal
   { path: '', redirectTo: '/cliente', pathMatch: 'full' },  // Ruta para cliente
   { path: 'fondos', component: FondosComponent },
   { path: 'HistorialTrans', component: HistorialComponent }
